@@ -6,10 +6,9 @@ import { getPercent } from "../../middleware";
 export const standardButtonStyles = ({ width, height }) =>
   StyleSheet.create({
     container: {
-      container: {
       height: getPercent(8, height),
       width: getPercent(90, width),
-      backgroundColor: "#FD4E4E",
+      backgroundColor: "#65558F",
       borderRadius: 100,
       shadowColor: "#000",
       shadowOffset: {
@@ -21,11 +20,10 @@ export const standardButtonStyles = ({ width, height }) =>
       alignItems: "center",
       justifyContent: "center",
     },
-    },
     text: {
       fontSize: rf(15),
       fontFamily: "SemiBold",
-      color: "#000000",
+      color: "#fff",
     },
   });
 
@@ -49,29 +47,49 @@ export const loaderStyles = ({ width, height }) =>
 
 export const Headerstyles = ({ width, height }) =>
   StyleSheet.create({
-    container: {
+    imagewrapper: {
+      justifyContent: "flex-end",
+      alignItems: "center",
+      height: getPercent(30, height),
       width: getPercent(100, width),
-      height: getPercent(12, height),
-      alignItems: "center",
-      justifyContent: "center",
-      backgroundColor: "#fff",
-      backgroundColor: "#0F1322",
-      flexDirection: "row",
-      alignItems: "center",
+      marginBottom: getPercent(2, height),
+    },
+    lockimagecontainer: {
+      height: getPercent(22, height),
+      width: getPercent(22, height),
+      overflow: "hidden",
+    },
+  });
+
+export const Barheaderstyles = ({ width, height }) =>
+  StyleSheet.create({
+    container: {
+      height: getPercent(20, height),
+      width: getPercent(100, width),
       paddingHorizontal: getPercent(5, width),
-      justifyContent: "space-between",
-      borderBottomWidth: 1,
-      borderColor: "#28374D",
+      paddingTop: 20,
     },
-    titlewrapper: {
+    iconwrapper: {
       flexDirection: "row",
       alignItems: "center",
+      justifyContent: "space-between",
+      height: "100%",
     },
-    titletext: {
-      fontFamily: "SemiBold",
-      fontSize: 18,
-      color: "rgba(255, 255, 255, 1)",
-      marginLeft: 10,
-      fontWeight: "600",
+    iconbody: {
+      height: getPercent(5, height),
+      width: getPercent(5, height),
+      overflow: "hidden",
+    },
+    barbody: {
+      width: "100%",
+      height: 5,
+      backgroundColor: "#E8DEF8",
+      borderRadius: 10,
+    },
+    progressbar: {
+      height: 5,
+      width: "30%",
+      borderRadius: 100,
+      backgroundColor: "#65558F",
     },
   });
