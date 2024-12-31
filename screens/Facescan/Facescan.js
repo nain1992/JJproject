@@ -13,7 +13,6 @@ import Barheader from "../../globalComponents/Barheader";
 import { Camera, CameraView, CameraType } from "expo-camera";
 import Continuemodal from "./component/Continuemodal";
 import Confirmmodal from "./component/Confirmmodal";
-import { getPercent } from "../../middleware";
 
 const Facescan = (props) => {
   let {} = props;
@@ -22,10 +21,10 @@ const Facescan = (props) => {
 
   const [hasPermission, setHasPermission] = useState(null);
   const [cameraRef, setCameraRef] = useState(null);
-  //   const [facing, setFacing] = useState < CameraType > "back";
   const [capturedImage, setCapturedImage] = useState(null);
   const [ismodalvisible, setIsmodalvisible] = useState(false);
   const [isconfirmmodalvisible, setIsconfirmmodalvisible] = useState(false);
+  const [isPictureTaken, setIsPictureTaken] = useState(false);
 
   useEffect(() => {
     (async () => {
@@ -58,10 +57,6 @@ const Facescan = (props) => {
     }
   };
 
-  function toggleCameraFacing() {
-    setFacing((current) => (current === "back" ? "front" : "back"));
-  }
-
   return (
     <SafeAreaView style={styles.container}>
       <Barheader
@@ -69,6 +64,9 @@ const Facescan = (props) => {
         image={require("../../assets/3.png")}
         secondimage={require("../../assets/11.png")}
         thirdimage={require("../../assets/10.png")}
+        showFirstCheckbox={true}
+        showSecondCheckbox={isPictureTaken}
+        showThirdCheckbox={false}
       />
       <View style={styles.passportpicturetextwrapper}>
         <View style={{ width: "80%" }}>
@@ -90,13 +88,11 @@ const Facescan = (props) => {
           style={styles.camerabody}
           ref={(ref) => setCameraRef(ref)}
           type="front"
-          //   type={Camera.Constants.type.back}
         />
       </View>
       <TouchableOpacity
         style={styles.btnbody}
         onPress={handleCapture}
-        // onPress={toggleCameraFacing}
       ></TouchableOpacity>
       {capturedImage && (
         <View style={styles.previewWrapper}>
@@ -113,6 +109,7 @@ const Facescan = (props) => {
           onContinue={() => {
             setIsmodalvisible(false);
             setIsconfirmmodalvisible(true);
+            setIsPictureTaken(true);
           }}
         />
       ) : null}

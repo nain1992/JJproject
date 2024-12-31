@@ -21,6 +21,7 @@ const Entercode = (props) => {
   let styles = _styles({ width, height });
 
   const [ismodalvisible, setIsmodalvisible] = useState(false);
+  const [isPictureTaken, setIsPictureTaken] = useState(false);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -29,6 +30,9 @@ const Entercode = (props) => {
         image={require("../../assets/3.png")}
         secondimage={require("../../assets/11.png")}
         thirdimage={require("../../assets/7.png")}
+        showFirstCheckbox={true}
+        showSecondCheckbox={true}
+        showThirdCheckbox={false}
       />
       <View style={styles.passportpicturetextwrapper}>
         <View style={{ width: "80%" }}>

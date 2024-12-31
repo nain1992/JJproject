@@ -37,7 +37,7 @@ const Continuemodal = (props) => {
 
   return (
     <Modal transparent={true} animationType="slide">
-      <View style={{ flex: 1, backgroundColor: "#00000aaa" }}></View>
+      <View style={{ flex: 1 }}></View>
       <View style={styles.container}>
         <View style={styles.imagebody}>
           <Image

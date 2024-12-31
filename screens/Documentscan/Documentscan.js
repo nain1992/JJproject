@@ -13,7 +13,6 @@ import Barheader from "../../globalComponents/Barheader";
 import { Camera, CameraView } from "expo-camera";
 import Continuemodal from "./component/Continuemodal";
 import Confirmmodal from "./component/Confirmmodal";
-import { getPercent } from "../../middleware";
 
 const Documentscan = (props) => {
   let {} = props;
@@ -25,6 +24,7 @@ const Documentscan = (props) => {
   const [capturedImage, setCapturedImage] = useState(null);
   const [ismodalvisible, setIsmodalvisible] = useState(false);
   const [isconfirmmodalvisible, setIsconfirmmodalvisible] = useState(false);
+  const [isPictureTaken, setIsPictureTaken] = useState(false);
 
   useEffect(() => {
     (async () => {
@@ -52,6 +52,7 @@ const Documentscan = (props) => {
     if (cameraRef) {
       const photo = await cameraRef.takePictureAsync();
       setCapturedImage(photo.uri);
+
       console.log("Captured photo URI:", photo.uri);
       setIsmodalvisible(true);
     }
@@ -64,6 +65,10 @@ const Documentscan = (props) => {
         image={require("../../assets/3.png")}
         secondimage={require("../../assets/9.png")}
         thirdimage={require("../../assets/10.png")}
+        icon
+        showFirstCheckbox={isPictureTaken}
+        showSecondCheckbox={false}
+        showThirdCheckbox={false}
       />
       <View style={styles.passportpicturetextwrapper}>
         <View style={{ width: "90%" }}>
@@ -85,7 +90,6 @@ const Documentscan = (props) => {
         <CameraView
           style={styles.camerabody}
           ref={(ref) => setCameraRef(ref)}
-          //   type={Camera.Constants.Type.back}
         />
       </View>
       <TouchableOpacity
@@ -107,6 +111,7 @@ const Documentscan = (props) => {
           onContinue={() => {
             setIsmodalvisible(false);
             setIsconfirmmodalvisible(true);
+            setIsPictureTaken(true);
           }}
         />
       ) : null}

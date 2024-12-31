@@ -17,27 +17,10 @@ const Continuemodal = (props) => {
   let { onCancel, onContinue } = props;
   let { width, height } = useWindowDimensions();
   let styles = _styles({ width, height });
-  let carddata = [
-    {
-      title: "List Item",
-      lable: "Supporting line text lorem ipsum dolor sit amet, consectetur.",
-      icon: require("../../../assets/3.png"),
-    },
-    {
-      title: "List Item",
-      lable: "Supporting line text lorem ipsum dolor sit amet, consectetur.",
-      icon: require("../../../assets/3.png"),
-    },
-    {
-      title: "List Item",
-      lable: "Supporting line text lorem ipsum dolor sit amet, consectetur.",
-      icon: require("../../../assets/3.png"),
-    },
-  ];
 
   return (
     <Modal transparent={true} animationType="slide">
-      <View style={{ flex: 1, backgroundColor: "#00000aaa" }}></View>
+      <View style={{ flex: 1 }}></View>
       <View style={styles.container}>
         <View style={styles.imagebody}>
           <Image

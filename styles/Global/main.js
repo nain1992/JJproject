@@ -76,9 +76,11 @@ export const Barheaderstyles = ({ width, height }) =>
       height: "100%",
     },
     iconbody: {
-      height: getPercent(5, height),
+      height: getPercent(6, height),
       width: getPercent(5, height),
-      overflow: "hidden",
+      // overflow: "hidden",
+      justifyContent: "center",
+      alignItems: "center",
     },
     barbody: {
       width: "100%",

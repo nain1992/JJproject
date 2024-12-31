@@ -25,6 +25,9 @@ const Congrates = (props) => {
         image={require("../../assets/3.png")}
         secondimage={require("../../assets/11.png")}
         thirdimage={require("../../assets/7.png")}
+        showFirstCheckbox={true}
+        showSecondCheckbox={true}
+        showThirdCheckbox={true}
       />
       <Text style={styles.congratestext}>Congratulations</Text>
       <View style={styles.framebody}>
@@ -45,7 +48,7 @@ const Congrates = (props) => {
       <View style={styles.btnwrapper}>
         <StandardButton
           title={"Continue"}
-          onPress={() => props?.navigation?.navigate("Onboarding")}
+          onPress={() => props?.navigation?.navigate("Register")}
         />
       </View>
     </SafeAreaView>
